@@ -5,3 +5,4 @@ marshmallow<4
 psycopg2<3
 sqlalchemy<2
 uplink==0.9.0
+google-api-python-client

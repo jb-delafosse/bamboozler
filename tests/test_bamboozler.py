@@ -1,6 +1,6 @@
 import unittest
 
-from bamboozler.views import API
+from bamboozler.infrastructure.http.views import API
 
 
 class BamboozlerTestCase(unittest.TestCase):
