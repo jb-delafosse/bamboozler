@@ -1,17 +1,16 @@
 import unittest
 
-import bamboozler
+from bamboozler.views import API
 
 
 class BamboozlerTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        self.app = API.app.test_client()
 
-    def setUp(self):
-        self.app = bamboozler.app.test_client()
-
-    def test_index(self):
-        rv = self.app.get('/')
-        self.assertIn('Welcome to Bamboozler', rv.data.decode())
+    def test_index(self) -> None:
+        response = self.app.get("/healthz")
+        self.assertIn("Service is up and running", response.data.decode())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

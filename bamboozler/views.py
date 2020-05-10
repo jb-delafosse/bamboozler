@@ -1,9 +1,19 @@
-from flask import render_template
+from flask import jsonify
+from werkzeug import Response
 
-from bamboozler import app
+from bamboozler import APP
+from flask_restx import Api, Resource
+
+API = Api(APP)
 
 
-@app.route('/')
-def index():
-    app.logger.warning('sample message')
-    return render_template('index.html')
+@API.route("/healthz")
+class BaseView(Resource):
+    @staticmethod
+    def get() -> Response:
+        """
+        Check whether service is alive.
+        """
+        response = jsonify({"message": "Service is up and running"})
+        response.status_code = 200
+        return response

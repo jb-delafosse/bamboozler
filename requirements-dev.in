@@ -1,0 +1,5 @@
+# Tests
+pytest
+
+# Lint
+pre-commit
