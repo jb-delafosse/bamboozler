@@ -20,3 +20,10 @@ class Reminder:
     completed_at: datetime
     links: List[str]
     created_at: datetime
+
+
+@dataclass(frozen=True)
+class ReminderContainer:
+    container_id: str
+    title: str
+    updated_at: datetime
